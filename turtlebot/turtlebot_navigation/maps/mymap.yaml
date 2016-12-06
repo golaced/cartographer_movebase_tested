@@ -1,0 +1,7 @@
+image: /home/cit-6/turtlebot/src/turtlebot_apps/turtlebot_navigation/maps/mymap.pgm
+resolution: 0.050000
+origin: [-0.116273, -2.194217, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
