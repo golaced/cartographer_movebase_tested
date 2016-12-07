@@ -25,3 +25,6 @@ lidar:  hokuyo
 3. /src/turtlebot/turtlebot_navigation/src/foot_print.py
 4. /src/turtlebot/turtlebot_navigation/launch/
 5. /src/turtlebot/turtlebot_navigation/carto_nav_turtlebot.rviz
+
+##use dev branck to develop newer funtion
+
