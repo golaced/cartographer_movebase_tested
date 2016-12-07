@@ -4,6 +4,9 @@
     <param name="port" value="/dev/ttyACM0" />
   </node>
 
+<!-- publish tf transform between lidar_back_link and base_link -->
+ <node pkg="tf" type="static_transform_publisher" name="lidar_tf_broadcaster" args="0.1 0 0.4 0 0 3.14 base_link lidar_back_link 100" />
+
  <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find turtlebot_navigation )/launch/carto_nav_turtlebot.rviz" />
 
