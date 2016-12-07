@@ -28,3 +28,12 @@ lidar:  hokuyo
 
 ##use dev branck to develop newer funtion
 
+##important modified history
+
+###20161207
+add kinect_follow_with_lidar_mapping.launch in /turtlebot/turtlebot_follower
+> to make turtlebot mapping and following , use kinect to follow people, use hokuyo lidar to mapping with cartographer. 
+
+add turtlebot_hokuyo_back.launch in /cartographer_turtlebot/
+> to let hokuyo lidar fixed in the back of turtlebot and publish its tf .
+
