@@ -36,6 +36,7 @@ if __name__ == '__main__':
 	        pose.header.frame_id = "/map"
 	        pose.pose.position.x = trans[0]
 	        pose.pose.position.y = trans[1]
+                print pose
 
 	        if (xAnt != pose.pose.position.x or yAnt != pose.pose.position.y):
 	                pose.header.seq = path.header.seq + 1
