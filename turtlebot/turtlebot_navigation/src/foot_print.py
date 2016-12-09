@@ -32,7 +32,7 @@ def callback(data):
 
         rospy.loginfo("Valor del contador: %i" % cont)
         if cont>max_append:
-        	path.poses.pop(0)
+	    path.poses.pop(0)
 
         pub.publish(path)
         xAnt=pose.pose.orientation.x
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         msg = rospy.Subscriber('/odom', Odometry, callback)
         rate = rospy.Rate(10) # 30hz
 
-    	try:
+	try:
                 while not rospy.is_shutdown():
                     rate.sleep()
         except rospy.ROSInterruptException:
