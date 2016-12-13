@@ -49,6 +49,7 @@ install(TARGETS foot_print
 
 
 # Mark anything (useful) else for installation
+# Mark anything (useful) else for installation
 install(DIRECTORY laser
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
