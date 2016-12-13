@@ -10,12 +10,11 @@ int main(int argc, char** argv)
 	ros::init(argc,argv,"foot_printer");
 	ros::NodeHandle n;
 	ros::Publisher pub=n.advertise<nav_msgs::Path>("/path",10);
-	tf::TransformListner listener;
+	tf::TransformListener listener;
 	ros::Rate rate(10);
 	float xAnt=0.0;
 	float yAnt=0.0;
 	nav_msgs::Path path;
-
 	while(n.ok())
 		{
 			tf::StampedTransform transform;
@@ -38,7 +37,7 @@ int main(int argc, char** argv)
 			if (xAnt!=pose.pose.position.x or yAnt!=pose.pose.position.y){
 					pose.header.seq=path.header.seq+1;
 					path.header.frame_id="/map";
-					path.header.stamp=rospy::Time::now();
+					path.header.stamp=ros::Time::now();
 					pose.header.stamp=path.header.stamp;
 					pub.publish(path);
 				}
@@ -49,6 +48,4 @@ int main(int argc, char** argv)
 		}
 
 }
-
-
 

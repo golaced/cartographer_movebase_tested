@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(turtlebot_navigation)
 
 # Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS tf roscpp rospy sensor_msgs)
+find_package(catkin REQUIRED COMPONENTS tf roscpp rospy sensor_msgs nav_msgs geometry_msgs)
 
 # What other packages will need to use this package
 generate_messages(
@@ -10,9 +10,11 @@ generate_messages(
     std_msgs
     )
 
-catkin_package(
-    CATKIN_DEPENDS tf roscpp sensor_msgs
-)
+#catkin_package(
+#    CATKIN_DEPENDS tf roscpp sensor_msgs nav_msgs geometry_msgs
+#)
+
+catkin_package()
 
 catkin_add_env_hooks(25.turtlebot-navigation SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
@@ -21,7 +23,7 @@ catkin_add_env_hooks(25.turtlebot-navigation SHELLS sh DIRECTORY ${CMAKE_CURRENT
 ###########
 ## Build ##
 ###########
-include_directories(${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 # Add_executables
 add_executable(laser_footprint_filter src/laser_footprint_filter.cpp)
@@ -40,6 +42,12 @@ install(TARGETS laser_footprint_filter
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+install(TARGETS foot_print
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ ) 
+
+
 # Mark anything (useful) else for installation
 install(DIRECTORY laser
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
@@ -54,5 +62,9 @@ install(DIRECTORY param
 )
 
 install(DIRECTORY maps
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY src 
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

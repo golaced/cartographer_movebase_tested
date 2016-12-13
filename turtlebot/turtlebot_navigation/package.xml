@@ -14,10 +14,14 @@
   <build_depend>tf</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>sensor_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
 
   <run_depend>tf</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>sensor_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
   <run_depend>move_base</run_depend>
   <run_depend>map_server</run_depend>  
   <run_depend>amcl</run_depend>
