@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 	ros::NodeHandle n;
 	ros::Publisher pub=n.advertise<nav_msgs::Path>("/path",10);
 	tf::TransformListener listener;
-	ros::Rate rate(10);
+	ros::Rate rate(100);
 	float xAnt=0.0;
 	float yAnt=0.0;
 	nav_msgs::Path path;
