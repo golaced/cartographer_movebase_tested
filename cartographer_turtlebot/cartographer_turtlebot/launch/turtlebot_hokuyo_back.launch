@@ -19,6 +19,6 @@
 
 
 <!-- use odom data to show the path -->
-  <node pkg="turtlebot_navigation" type="foot_printer.py" name="foot_printer" />
+  <node pkg="turtlebot_navigation" type="foot_print" name="foot_printer" />
 
 </launch>

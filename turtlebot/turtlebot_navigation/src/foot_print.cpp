@@ -3,7 +3,9 @@
 #include <tf/transform_listener.h>
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <vector>
 
+using std::vector;
 
 int main(int argc, char** argv)
 {
@@ -15,12 +17,16 @@ int main(int argc, char** argv)
 	float xAnt=0.0;
 	float yAnt=0.0;
 	nav_msgs::Path path;
+        
+	vector<geometry_msgs::PoseStamped> poses;
+	
 	while(n.ok())
 		{
 			tf::StampedTransform transform;
 
 			try{
-				listener.lookupTransform("/map","/base_link",ros::Time(0),transform);
+				listener.waitForTransform("map","base_link",ros::Time(0),ros::Duration(3.0));
+				listener.lookupTransform("map","base_link",ros::Time(0),transform);
 			}
 
 			catch (tf::TransformException ex)
@@ -34,11 +40,16 @@ int main(int argc, char** argv)
 			pose.pose.position.x=transform.getOrigin().x();
 			pose.pose.position.y=transform.getOrigin().y();
 
-			if (xAnt!=pose.pose.position.x or yAnt!=pose.pose.position.y){
+			//if (xAnt != pose.pose.position.x or yAnt != pose.pose.position.y){
+			//if (xAnt+0.2<pose.pose.position.x  or yAnt-0.2>pose.pose.position.y){
+			if (xAnt+0.05<pose.pose.position.x or pose.pose.position.x<xAnt-0.05 or yAnt+0.05<pose.pose.position.y or pose.pose.position.y<yAnt-0.05){
 					pose.header.seq=path.header.seq+1;
 					path.header.frame_id="/map";
 					path.header.stamp=ros::Time::now();
 					pose.header.stamp=path.header.stamp;
+					//path.poses.append(pose);
+					poses.push_back(pose);
+					path.poses= poses;
 					pub.publish(path);
 				}
 
