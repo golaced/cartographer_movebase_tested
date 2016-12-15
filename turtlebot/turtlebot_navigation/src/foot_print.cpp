@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 
 			//if (xAnt != pose.pose.position.x or yAnt != pose.pose.position.y){
 			//if (xAnt+0.2<pose.pose.position.x  or yAnt-0.2>pose.pose.position.y){
-			if (xAnt+0.05<pose.pose.position.x or pose.pose.position.x<xAnt-0.05 or yAnt+0.05<pose.pose.position.y or pose.pose.position.y<yAnt-0.05){
+			if (xAnt+0.01<pose.pose.position.x or pose.pose.position.x<xAnt-0.01 or yAnt+0.01<pose.pose.position.y or pose.pose.position.y<yAnt-0.01){
 					pose.header.seq=path.header.seq+1;
 					path.header.frame_id="/map";
 					path.header.stamp=ros::Time::now();
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 
 			xAnt=pose.pose.position.x;
 			yAnt=pose.pose.position.y;
-			rate.sleep();
+			//rate.sleep();
 		}
 
 }
