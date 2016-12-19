@@ -27,11 +27,8 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 # Add_executables
 add_executable(laser_footprint_filter src/laser_footprint_filter.cpp)
-add_executable(foot_print src/foot_print.cpp)
 target_link_libraries(laser_footprint_filter ${catkin_LIBRARIES})
-target_link_libraries(foot_print ${catkin_LIBRARIES})
 
-add_dependencies(foot_print turtlebot_navigation_generate_messages_cpp)
 #############
 ## Install ##
 #############
@@ -42,10 +39,6 @@ install(TARGETS laser_footprint_filter
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(TARGETS foot_print
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
- ) 
 
 
 # Mark anything (useful) else for installation
@@ -62,9 +55,6 @@ install(DIRECTORY param
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY maps
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
 
 install(DIRECTORY src 
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}

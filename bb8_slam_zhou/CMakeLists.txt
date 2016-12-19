@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(bb8_slam)
+project(bb8_slam_zhou)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -79,14 +79,9 @@ install(DIRECTORY launch
 )
 
 
-install(DIRECTORY maps
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
 install(DIRECTORY src 
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-
 
 
 #############

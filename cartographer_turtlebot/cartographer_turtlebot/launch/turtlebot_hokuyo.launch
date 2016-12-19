@@ -4,16 +4,16 @@
     <param name="port" value="/dev/ttyACM0" />
   </node>
 
-<!--
  <node name="rviz" pkg="rviz" type="rviz" required="true"
-      args="-d $(find turtlebot_navigation )/launch/carto_nav_turtlebot.rviz" />
--->
+      args="-d $(find bb8_slam_zhou)/launch/carto_nav_turtlebot.rviz" />
 
   <include file="$(find cartographer_turtlebot)/launch/turtlebot.launch">
+
     <arg name="configuration_basename" value="turtlebot_hokuyo.lua" />
   </include>
 
 <!-- use odom data to show the path -->
-  <node pkg="turtlebot_navigation" type="foot_print" name="foot_printer" />
+
+  <node pkg="bb8_slam_zhou" type="foot_print" name="foot_printer" />
 
 </launch>

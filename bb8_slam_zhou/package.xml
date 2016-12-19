@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>bb8_slam</name>
+  <name>bb8_slam_zhou</name>
   <version>0.0.0</version>
-  <description>The bb8_slam package</description>
+  <description>The bb8_slam_zhou package</description>
   <maintainer email="cit-6@todo.todo">cit-6</maintainer>
   <license>TODO</license>
 
