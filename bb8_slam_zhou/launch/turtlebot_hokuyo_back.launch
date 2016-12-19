@@ -19,6 +19,6 @@
 
 
 <!-- use odom data to show the path -->
-  <node pkg="turtlebot_navigation" type="foot_print" name="foot_printer" />
+  <node pkg="bb8_slam_zhou" type="foot_print" name="foot_printer" />
 
 </launch>
