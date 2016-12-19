@@ -18,7 +18,5 @@
     <remap from="imu_out" to="/imu" />
   </node>
 
-  <arg name="map_file" default="/home/ctirobot/.local/data/maps/mymap"/>
-  <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(arg map_file)" respawn="true" respawn_delay="3" />
 
 </launch>
