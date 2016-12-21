@@ -1,6 +1,6 @@
 <launch>
   <include file="$(find turtlebot_follower)/launch/follower.launch" />
-  <include file="$(find cartographer_turtlebot)/launch/turtlebot_hokuyo_back.launch" />
+  <include file="$(find bb8_slam_zhou)/launch/turtlebot_hokuyo_back.launch" />
 </launch>
 
 
