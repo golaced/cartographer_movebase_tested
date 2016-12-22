@@ -74,18 +74,16 @@ install(TARGETS foot_print
  ) 
 
 
-install(DIRECTORY launch
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
 
 install(DIRECTORY src 
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY configuration_files 
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(DIRECTORY launch configuration_files
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+
 
 #############
 ## Testing ##
