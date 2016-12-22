@@ -9,10 +9,8 @@
       args="-d $(find bb8_slam_zhou)/launch/carto_nav_turtlebot.rviz" />
 -->
 
-  <include file="$(find bb8_slam_zhou)/launch/turtlebot.launch">
+  <include file="$(find bb8_slam_zhou)/launch/turtlebot.launch" />
 
-    <arg name="configuration_basename" value="turtlebot_hokuyo.lua" />
-  </include>
 
 <!-- use odom data to show the path -->
 

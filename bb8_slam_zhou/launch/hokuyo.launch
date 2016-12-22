@@ -1,4 +1,5 @@
 <launch>
+  <arg name="configuration_basename" />
 
   <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
 
@@ -16,6 +17,13 @@
     <remap from="imu_in" to="/mobile_base/sensors/imu_data_raw" />
     <remap from="imu_out" to="/imu" />
   </node>
+<!--
+  <node name="flat_world_imu_node" pkg="cartographer_turtlebot"
+      type="cartographer_flat_world_imu_node" output="screen">
+    <remap from="imu_in" to="/mti/sensor/imu" />
+    <remap from="imu_out" to="/imu" />
+  </node>
+-->
 
 
 </launch>
