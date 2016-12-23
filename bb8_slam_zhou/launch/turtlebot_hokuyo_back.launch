@@ -12,13 +12,24 @@
       args="-d $(find bb8_slam_zhou )/launch/carto_nav_turtlebot.rviz" />
 -->
 
-  <include file="$(find bb8_slam_zhou)/launch/turtlebot.launch">
-    <arg name="configuration_basename" value="turtlebot_hokuyo.lua" />
-  </include>
-
-
-
 <!-- use odom data to show the path -->
   <node pkg="bb8_slam_zhou" type="foot_print" name="foot_printer" />
+
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory
+              $(find bb8_slam_zhou)/configuration_files
+          -configuration_basename turtlebot_hokuyo.lua"
+      output="screen">
+    <remap from="points2" to="/camera/depth/points" />
+  </node>
+
+  <node name="flat_world_imu_node" pkg="cartographer_turtlebot"
+      type="cartographer_flat_world_imu_node" output="screen">
+    <remap from="imu_in" to="/mobile_base/sensors/imu_data_raw" />
+    <remap from="imu_out" to="/imu" />
+  </node>
 
 </launch>
