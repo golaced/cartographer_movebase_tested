@@ -2,6 +2,18 @@
 Changelog for package turtlebot_teleop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.4.2 (2016-12-22)
+------------------
+* Update velocity_smoother.launch.xml to handle namespaces
+  Changed topic remapping and nodelet manager to avoid absolute paths. In this way the velocity smoother will work even inside a namespace created with the tag <group ns="">.
+* Contributors: Luca Cristoforetti
+
+2.4.1 (2016-12-22)
+------------------
+
+2.4.0 (2016-11-01)
+------------------
+
 2.3.12 (2016-06-27)
 -------------------
 

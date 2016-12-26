@@ -1,0 +1,12 @@
+<launch>
+  <node name="xsens_imu" pkg="xsens_driver" type="mtnode.py" >
+   <param name="frame_id" value="imu" />
+   <param name="device" value="/dev/ttyUSB0" />
+   <param name="baudrate" value="115200" />
+   <param name="frame_local" value="ENU" />
+   <remap from="/mti/sensor/imu" to="/imu" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="imu_tf_broadcaster" args="0 0 0 0 0 0 imu laser 100" />
+
+</launch>

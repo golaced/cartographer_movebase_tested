@@ -1,8 +1,0 @@
-<!--
-  The turtlebot people (or whatever) follower nodelet.
- -->
-<launch>
-    <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
-    <include file="$(find turtlebot_follower)/launch/follower.launch" />
-    <node pkg="rosbag" type="record" name="bag_record" args="-o follower.bag /camera/rgb/image_rect_color"/>
-</launch>
