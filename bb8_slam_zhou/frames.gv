@@ -1,7 +1,0 @@
-digraph G {
-"imu" -> "laser"[label="Broadcaster: /imu_tf_broadcaster\nAverage rate: 10.193 Hz\nMost recent transform: 1482478327.264 ( -0.081 sec old)\nBuffer length: 4.905 sec\n"];
-edge [style=invis];
- subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1482478327.183"[ shape=plaintext ] ;
- }->"imu";
-}
