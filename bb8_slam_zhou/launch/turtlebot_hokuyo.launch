@@ -14,6 +14,8 @@
 <!-- use odom data to show the path -->
 
   <node pkg="bb8_slam_zhou" type="foot_print" name="foot_printer" />
+
+
   <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
 
 
@@ -33,10 +35,7 @@
     <remap from="imu_out" to="/imu" />
   </node>
 -->
-  <node name="flat_world_imu_node" pkg="cartographer_turtlebot"
-      type="cartographer_flat_world_imu_node" output="screen">
-    <remap from="imu_in" to="/imu/data" />
-    <remap from="imu_out" to="/imu" />
-  </node>
+
+  <include file="$(find xsens_driver)/launch/xsens.launch" />
 
 </launch>
