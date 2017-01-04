@@ -1,22 +1,22 @@
 <launch>
-  <arg name="mymap_file" default="/home/ctirobot/.local/data/maps/mymap"/>
   <arg name="custom_param_file" default="$(find turtlebot_navigation)/param/dummy.yaml"/>
 
-
-  <include file="$(find bb8_slam_zhou)/launch/turtlebot_hokuyo.launch" />
-
-  <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(arg mymap_file)" respawn="true" respawn_delay="3" />
-
   <!-- Map server changeing to my map-->
-  <!--
-  <arg name="map_file" default="~/.local/data/maps/mymap.yaml"/>
-  -->
+  <arg name="map_file" default="~/.ros/maps/mymap.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg mymap_file)"/>
+
+
 
   <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
     <arg name="custom_param_file" value="$(arg custom_param_file)"/>
   </include>
+
+  <include file="$(find bb8_slam_zhou)/launch/turtlebot_hokuyo.launch" />
+
+  <arg name="mymap_file" default="/home/cit-6/.ros/maps/mymap"/>
+  <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(arg mymap_file)" respawn="true" respawn_delay="3" />
+
 
 </launch>
 

@@ -24,7 +24,7 @@ options = {
     constant_odometry_rotational_variance = 1e-7,
   },
   map_frame = "map",
-  tracking_frame = "imu",
+  tracking_frame = "gyro_link",
   published_frame = "odom",
   odom_frame = "odom",
   provide_odom_frame = false,

@@ -11,17 +11,19 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find bb8_slam_zhou)/configuration_files
-          -configuration_basename demo_hokuyo.lua"
+          -configuration_basename demo_hokuyo2.lua"
       output="screen">
     <remap from="scan" to="scan" />
   </node>
 
+<!--
   <include file="$(find xsens_driver)/launch/xsens.launch" />
+  -->
 
 <!--
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
 -->
 
-  <node name="map_saver" pkg="map_server" type="map_saver" args="-f ~/.ros/maps/mymap" respawn="true" respawn_delay="5" />
+  <node name="map_saver" pkg="map_server" type="map_saver" args="-f /home/cit-6/.ros/maps/mymap" respawn="true" respawn_delay="5" />
 </launch>
